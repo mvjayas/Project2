@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-       <form method="get" action="validate_usr">
+       <form method="post" action="validate_usr">
             <center>
             <table border="1" cellpadding="5" cellspacing="2">
                 <thead>

@@ -1,19 +1,14 @@
 package com.marketpro.pkg;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 //@Scope("prototype")
-@Entity
+//@Entity
 public class user {
-@Id
-private String name;
-private String password;
-private String email;
+	public String name;
+	public String password;
+	public String email;
 
 
 public user() {}

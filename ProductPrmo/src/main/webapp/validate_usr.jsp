@@ -8,6 +8,10 @@
 <title>Product Talk</title>
 </head>
 <style type="text/css">
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
 
 * {
     box-sizing: border-box;
@@ -47,9 +51,25 @@ body {
 }
 
 /* Create three equal columns that floats next to each other */
-.column {
+.column1 {
     float: left;
-    width: 33.33%;
+    width: 20%;
+    padding: 15px;
+    overflow: scroll;
+}
+
+/* Create three equal columns that floats next to each other */
+.column2 {
+    float: left;
+    width: 60%;
+    padding: 15px;
+    overflow: scroll;
+}
+
+/* Create three equal columns that floats next to each other */
+.column3 {
+    float: left;
+    width: 20%;
     padding: 15px;
     overflow: scroll;
 }
@@ -64,7 +84,7 @@ body {
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width:600px) {
-    .column {
+    .column1 {
         width: 100%;
         overflow: scroll;
     }
@@ -85,24 +105,42 @@ body {
 
 <div class="topnav">
   <a href="Home.jsp">Home</a>
-  <a href="#Product">Product</a>
+  <a href="Display.jsp">Product</a>
   <a href="uploadfile.jsp">Upload</a>
   <a href="#Feedback">Feedback</a>
   <a href="#Contact">Contact</a>
 </div>
 
 <div class="row">
-  <div class="column">
-      <h2>Column</h2>
+  <div class="column1">
+      <h2>Static Image</h2>
     <img src="ProductPrmo/../resources/images/image_02.jpg"/>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
   </div>
-  <div class="column">
-    <h2>Column</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+  <div class="column2">
+    <h2>Product</h2>
+      <table align='center' style="width: 50%">
+      <tr>
+      <th>ProductID </th>
+      <th>Product</th>
+      <th>Comment</th>
+      <th>Rating</th>
+      </tr>
+      <%@ page import="com.marketpro.pkg.dao.getImage" %>
+<%
+	getImage imgtest = new getImage();
+	for (int i=1 ; i<= imgtest.get(); i++  ){
+		//out.print("<tr> <td align='center'>"+ i + "</td><td align='center'><img src=\"image?id="+i+"\" width=\"115\" height=\"140\"</td></tr>" );
+		out.print("<tr> <td align='center'>"+ i + "</td><td align='center'><img src=\"image?id="+i+"\" width=\"117\" height=\"150\"</td>" );
+		out.print("<td> <textarea rows=\"10\" cols=\"50\" name=\"comment\" name=\"comment" +i + "\" >Enter Comments here... </textarea></td> </tr>"  );
+
+	}
+%>
+ </table>   
+
   </div>
-  <div class="column">
-    <h2>Column</h2>
+  <div class="column3">
+    <h2>Share</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
   </div>
 </div>

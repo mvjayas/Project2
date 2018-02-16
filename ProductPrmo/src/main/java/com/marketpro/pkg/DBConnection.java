@@ -8,7 +8,9 @@ import java.util.Properties;
 public class DBConnection 
 {
 	String sql ="select * from user where name=? and password=? ;";
-	String url ="jdbc:mysql://localhost:3306/product";
+	//String url ="jdbc:mysql://localhost:3306/product";
+	String url ="jdbc:mysql://35.196.200.210:3306/product";
+	
 	//String uname ="root";
 	//String password ="11420";
 

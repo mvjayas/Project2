@@ -14,6 +14,22 @@
 		
 <context:component-scan base-package="com.marketpro.pkg"></context:component-scan>
 
+<bean
+	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix">
+		<value>/</value>
+	</property>
+	<property name="suffix">
+		<value>.jsp</value>
+	</property>
+	</bean>
+
+<!--  	
+<bean
+ <bean class = "org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+</bean>
+-->
+
 <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 	<property name="driverClass" value="com.mysql.jdbc.Driver" /> 
 	<property name="jdbcUrl" value="jdcb:mysql://localhost:3306/product?useSSL=false" />
@@ -41,5 +57,8 @@
 	<property name="sessionFactory" ref="sessionFactory" />
 </bean>
 <tx:annotation-driven transaction-manager="myTransactionManager"/>
+
+<mvc:resources mapping="/resources/**" location="/resources/,/resources/images/" />
+<mvc:annotation-driven />
 
 </beans>
